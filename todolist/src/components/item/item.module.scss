@@ -22,11 +22,16 @@
     }
 }
 
+.removed {
+    display: none;
+    //background-color: #888888;
+}
+
 /*Custom radio buttons and checkboxes*/
 .control {
     font-size: 16px;
     position: relative;
-    display: block;
+    //display: block;
 }
 
 .control input {
@@ -76,6 +81,9 @@
 /* Show check mark */
 .control input:checked ~ .controlIndicator:after {
     display: block;
+}
+.control input:checked ~ .controlName {
+    text-decoration: line-through;
 }
 
 /* Checkbox tick */
