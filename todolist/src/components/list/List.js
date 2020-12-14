@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from "../item/Item";
 import styles from './list.module.css';
+import AddItem from "../addItem/AddItem";
 
 export default class List extends React.Component {
 	constructor(props) {
@@ -44,6 +45,7 @@ export default class List extends React.Component {
 	render() {
 		return (
 			<ul className={styles.list}>
+				<AddItem/>
 				{this.state.list.map(item => <Item key={item.id} item={item}/>)}
 			</ul>
 		);

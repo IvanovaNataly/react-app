@@ -1,0 +1,41 @@
+.addItem {
+    padding: 30px;
+    background-color: #F44335;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.label {
+    display: inline;
+    font-size: 0;
+}
+
+.input {
+    height: 30px;
+    flex-basis: 66%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.confirm {
+    height: 30px;
+    flex-basis: 33%;
+    flex-grow: 0;
+    background-color: #D9D9D9;
+    &:hover {
+        background-color: #bbbbbb;
+    }
+}
+
+.pageTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
