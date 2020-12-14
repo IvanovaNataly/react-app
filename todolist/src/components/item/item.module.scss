@@ -1,0 +1,96 @@
+.item {
+    height: 50px;
+    line-height: 50px;
+    padding-left: 40px;
+    padding-right: 10px;
+    position: relative;
+    &:nth-child(odd) {
+        background-color: #eeeeee;
+    }
+    &:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    &:hover {
+        background-color: #ddd;
+    }
+    &Label {
+        display: flex;
+        align-items: center;
+    }
+    &Close {
+        margin-left: auto;
+    }
+}
+
+/*Custom radio buttons and checkboxes*/
+.control {
+    font-size: 16px;
+    position: relative;
+    display: block;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.controlIndicator {
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    width: 17px;
+    height: 17px;
+    background-color: #ffffff;
+    border: 1px solid #7d7d7d;
+    cursor: pointer;
+}
+
+/* Hover and focus states */
+.controlIndicator:hover,
+.control input:focus ~ .control-indicator {
+    background: #cacfd5;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .controlIndicator,
+.control input:checked:focus ~ .controlIndicator {
+    background: #ffffff;
+}
+
+/* Disabled state */
+.control input:disabled ~ .controlIndicator {
+    pointer-events: none;
+    opacity: 0.6;
+    background: #e6e6e6;
+    cursor: default;
+}
+
+/* Check mark */
+.controlIndicator:after {
+    position: absolute;
+    display: none;
+    content: "";
+}
+
+/* Show check mark */
+.control input:checked ~ .controlIndicator:after {
+    display: block;
+}
+
+/* Checkbox tick */
+.controlCheckbox .controlIndicator:after {
+    top: 2px;
+    left: 5px;
+    width: 6px;
+    height: 9px;
+    transform: rotate(45deg);
+    border: solid #000000;
+    border-width: 0 2px 2px 0;
+    /*animation: checkbox-check 125ms 250ms cubic-bezier(0.4, 0, 0.23, 1) forwards;*/
+}
+
+/* Disabled tick colour */
+.controlCheckbox input:disabled ~ .controlIndicator:after {
+    border-color: #7b7b7b;
+}
