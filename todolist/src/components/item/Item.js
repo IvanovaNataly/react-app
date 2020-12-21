@@ -7,17 +7,16 @@ export default class Item extends React.Component {
 		this.state = {
 			toRemove: false
 		};
-		this.onRemoveItem = this.onRemoveItem.bind(this);
 	}
 
 	onRemoveItem = () => {
-		this.setState({ toRemove: true });
+		this.props.removeItem(this.props.item.id);
 	};
 
 	render() {
 		const item = this.props.item;
 		return (
-			<li className={`${styles.item} ${styles.control} ${this.state.toRemove ? styles.removed : ""}`}>
+			<li className={`${styles.item} ${styles.control}`}>
 				<label htmlFor={`item-${item.id}`} className={`${styles.itemLabel}  ${styles.controlCheckbox}`}>
 					<input id={`item-${item.id}`} type="checkbox" className=""/>
 					<div className={styles.controlIndicator}/>
