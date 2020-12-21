@@ -44,6 +44,17 @@ export default class List extends React.Component {
 		};
 	}
 
+	addItem = (itemName) => {
+		console.log(itemName);
+		const newItem = {
+			id: this.state.list[this.state.list.length - 1].id + 1,
+			name: itemName,
+			done: false
+		};
+		theList.push(newItem);
+		this.setState({ list: theList });
+	};
+
 	removeItem = (itemRemovedId) => {
 		theList = theList.filter(item => itemRemovedId !== item.id);
 		this.setState({ list: theList });
@@ -52,7 +63,7 @@ export default class List extends React.Component {
 	render() {
 		return (
 			<ul className={styles.list}>
-				<AddItem/>
+				<AddItem addItem={this.addItem}/>
 				{this.state.list.map(item => <Item key={item.id} item={item} removeItem={this.removeItem}/>)}
 			</ul>
 		);
