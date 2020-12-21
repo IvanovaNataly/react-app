@@ -9,9 +9,14 @@ export default class AddItem extends React.Component {
 		}
 	}
 
+	onChange = (e) => {
+		this.setState({ addItemInput: e.target.value })
+	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
-		this.props.addItem(e.target.value);
+		if (this.state.addItemInput) this.props.addItem(this.state.addItemInput);
+		this.setState({ addItemInput: '' });
 	};
 
 	render() {
@@ -26,7 +31,7 @@ export default class AddItem extends React.Component {
 						   className={styles.input}
 						   placeholder="What to do?"
 							value={this.state.addItemInput}
-							onChange={this.onSubmit}/>
+							onChange={this.onChange}/>
 					<button className={styles.submit}>Add</button>
 				</form>
 			</div>
