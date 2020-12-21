@@ -2,7 +2,7 @@
     height: 50px;
     line-height: 50px;
     padding-left: 40px;
-    padding-right: 10px;
+    padding-right: 25px;
     position: relative;
     &.done {
         background-color: #888888;
@@ -21,7 +21,12 @@
         align-items: center;
     }
     &Remove {
+        font-size: 0;
+        height: 20px;
+        width: 20px;
         margin-left: auto;
+        background-image: url('../../images/close.svg');
+        background-repeat: no-repeat;
     }
 }
 
