@@ -32,7 +32,7 @@ let theList = [
 	{
 		id: 6,
 		name: 'close eyes',
-		done: false
+		done: true
 	}
 ];
 
@@ -55,6 +55,13 @@ export default class List extends React.Component {
 		this.setState({ list: theList });
 	};
 
+	checkItemDone = (itemCheckedId, checkedValue) => {
+		const checkedItem = theList.find(item => itemCheckedId === item.id);
+		checkedItem.done = checkedValue;
+		this.setState({ list: theList });
+		console.log(theList);
+	};
+
 	removeItem = (itemRemovedId) => {
 		theList = theList.filter(item => itemRemovedId !== item.id);
 		this.setState({ list: theList });
@@ -64,7 +71,10 @@ export default class List extends React.Component {
 		return (
 			<ul className={styles.list}>
 				<AddItem addItem={this.addItem}/>
-				{this.state.list.map(item => <Item key={item.id} item={item} removeItem={this.removeItem}/>)}
+				{this.state.list.map(item => <Item key={item.id}
+												   item={item}
+												   removeItem={this.removeItem}
+												   checkItemDone={this.checkItemDone} />)}
 			</ul>
 		);
 	}

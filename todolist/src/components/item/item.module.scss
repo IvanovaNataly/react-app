@@ -4,28 +4,27 @@
     padding-left: 40px;
     padding-right: 10px;
     position: relative;
-    &:nth-child(odd) {
+    &.done {
+        background-color: #888888;
+    }
+    &:not(.done):nth-child(odd) {
         background-color: #eeeeee;
     }
-    &:nth-child(even) {
+    &:not(.done):nth-child(even) {
         background-color: #f9f9f9;
     }
-    &:hover {
+    &:not(.done):hover {
         background-color: #ddd;
     }
     &Label {
         display: flex;
         align-items: center;
     }
-    &Close {
+    &Remove {
         margin-left: auto;
     }
 }
 
-.removed {
-    display: none;
-    //background-color: #888888;
-}
 
 /*Custom radio buttons and checkboxes*/
 .control {
