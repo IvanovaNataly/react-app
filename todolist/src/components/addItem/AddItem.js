@@ -7,7 +7,12 @@ export default class AddItem extends React.Component {
 		this.state = {
 			addItemInput: ''
 		}
+		this.addInput = React.createRef();
 	}
+
+	componentDidMount = () => {
+		this.addInput.current.focus();
+	};
 
 	onChange = (e) => {
 		this.setState({ addItemInput: e.target.value })
@@ -31,7 +36,8 @@ export default class AddItem extends React.Component {
 						   className={styles.input}
 						   placeholder="What to do?"
 							value={this.state.addItemInput}
-							onChange={this.onChange}/>
+							onChange={this.onChange}
+							ref={this.addInput}/>
 					<button className={styles.submit}>Add</button>
 				</form>
 			</div>
